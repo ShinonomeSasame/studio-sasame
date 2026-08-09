@@ -36,10 +36,12 @@ docs/    … 開発工程に対応した番号付きドキュメント（Obsidia
 
 ## コーディング規約（プロジェクト固有ルールをここに追記していく）
 
-- TODO: Phaserのバージョンとscene構成の方針
-- TODO: 命名規則（ファイル名・クラス名・シーン名）
-- TODO: Lintルール（ESLint設定を導入したらここに記載）
-- TODO: アセットの配置・命名ルール（画像/音声/tilemapの置き場）
+- Phaserバージョン: 4.2.1固定（`package.json`参照。3系からのメジャーアップデートのためAPI差異に注意）
+- ファイル分割の粒度:
+  - シーンは1シーンにつき1ファイル（`src/scenes/`配下）
+  - クラスは1クラスにつき1ファイル
+- Lintルール: ESLint（flat config、`eslint.config.js`）を導入済み。`src/**/*.js`のみを対象とし、`npm run lint`で実行する
+- アセットの命名規則: `シーン名_アセット名`（例: `title_bgm.mp3`, `battle_player.png`）
 
 ## ワークフロー
 
