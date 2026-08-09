@@ -15,5 +15,8 @@ export default [
         ...globals.browser,
       },
     },
+    rules: {
+      'no-unused-vars': ['error', { argsIgnorePattern: '^_' }],
+    },
   },
 ];
