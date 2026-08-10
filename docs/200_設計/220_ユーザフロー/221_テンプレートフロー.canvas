@@ -1,0 +1,11 @@
+{
+	"nodes":[
+		{"id":"6162865062eaaa2c","type":"text","text":"**フローの構成要素**\n","x":-460,"y":-120,"width":920,"height":240},
+		{"id":"6a75a337505e3106","type":"text","text":"**開始**","x":-440,"y":-60,"width":160,"height":160,"color":"4"},
+		{"id":"b329cced7771ba15","type":"text","text":"**終了**","x":-260,"y":-60,"width":160,"height":160,"color":"1"},
+		{"id":"60eb51e43925a549","type":"text","text":"**画面／モーダル**","x":-80,"y":-60,"width":160,"height":160,"color":"5"},
+		{"id":"c054dad0b84cfd6a","type":"text","text":"**分岐**","x":100,"y":-60,"width":160,"height":160,"color":"3"},
+		{"id":"fbe1c21197c046d4","type":"text","text":"**処理**","x":280,"y":-60,"width":160,"height":160,"color":"6"}
+	],
+	"edges":[]
+}

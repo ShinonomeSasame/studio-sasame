@@ -1,1 +1,19 @@
-{}
+{
+	"nodes":[
+		{"id":"a95d615a349ea120","type":"text","text":"","x":-1870,"y":-300,"width":640,"height":900},
+		{"id":"58f9ca57671c3ce3","type":"text","text":"第1週","x":-1870,"y":-250,"width":160,"height":50,"color":"#808080"},
+		{"id":"265fe5820cca4c1c","type":"text","text":"第2週","x":-1710,"y":-250,"width":160,"height":50,"color":"#808080"},
+		{"id":"b57ec99dfdb64263","type":"text","text":"mm月","x":-1870,"y":-300,"width":640,"height":50,"color":"#c0c0c0"},
+		{"id":"3d65558d4f383fa5","type":"text","text":"第3週","x":-1550,"y":-250,"width":160,"height":50,"color":"#808080"},
+		{"id":"c30dddd2f422b337","type":"text","text":"第4週","x":-1390,"y":-250,"width":160,"height":50,"color":"#808080"},
+		{"id":"4e1a78d45eb8c26b","type":"text","text":"企画","x":-1970,"y":-200,"width":100,"height":160,"color":"#808080"},
+		{"id":"15882d8d1c78e072","type":"text","text":"設計","x":-1970,"y":-40,"width":100,"height":160,"color":"#808080"},
+		{"id":"1378f262c7306b8d","type":"text","text":"開発","x":-1970,"y":120,"width":100,"height":160,"color":"#808080"},
+		{"id":"c39e07caa61790ff","type":"text","text":"検証","x":-1970,"y":280,"width":100,"height":160,"color":"#808080"},
+		{"id":"00e2c1ae5752495c","type":"text","text":"その他","x":-1970,"y":440,"width":100,"height":160,"color":"#808080"},
+		{"id":"75c17bf65f11ae1a","x":-1860,"y":-180,"width":150,"height":120,"color":"3","type":"text","text":"**コンセプトを決定**"},
+		{"id":"f2eea90cec7b6902","type":"text","text":"**ゲームデザインを決定**","x":-1710,"y":-20,"width":160,"height":120,"color":"3"},
+		{"id":"30b5db169e1a4036","type":"text","text":"**ユーザフローを定義**","x":-1550,"y":-20,"width":160,"height":120,"color":"3"}
+	],
+	"edges":[]
+}
