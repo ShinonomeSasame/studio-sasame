@@ -1,0 +1,32 @@
+name: タスク
+description: 開発・検証を担当するAIエージェントが参照するタスク起票用テンプレート
+title: "[タスク] "
+body:
+  - type: textarea
+    id: task-summary
+    attributes:
+      label: タスク概要
+      description: 何を実装するか。開発担当エージェントはこの内容を元に実装範囲を判断します。
+      placeholder: 例）タイトル画面からゲーム画面への遷移を実装する
+    validations:
+      required: true
+
+  - type: textarea
+    id: acceptance-criteria
+    attributes:
+      label: 受入条件
+      description: 検証担当エージェントがこの項目を1つずつ確認します。条件ごとに1行ずつ、チェックボックス形式で記述してください。
+      value: |
+        - [ ]
+        - [ ]
+    validations:
+      required: true
+
+  - type: textarea
+    id: related-docs
+    attributes:
+      label: 関連ドキュメント
+      description: 関連する設計ドキュメントなどへのリンク(任意)
+      placeholder: docs/200_設計/210_ゲームデザイン/211_ゲームデザイン.md
+    validations:
+      required: false
