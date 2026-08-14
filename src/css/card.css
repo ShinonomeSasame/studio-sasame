@@ -1,11 +1,19 @@
 /*
  * ゲーム紹介カードの共通スタイル(HOME最新ゲーム欄・GALLERYページで共用する想定)。
  * サムネイル比率はOGP推奨比率(1.91:1)に統一する。
+ *
+ * --game-card-width: カード幅の単一ソース。HOME(単体配置)とGALLERY(複数カードの折り返し配置)で
+ * カード幅の決め方(コンテナ幅・列数)が異なっていても、この変数を共有することで
+ * 同一ビューポート幅における表示幅を一致させる(詳細はdocs/300_開発/310_決定メモ/311_決定メモ.md参照)。
  */
+
+:root {
+  --game-card-width: 480px;
+}
 
 .game-card {
   display: block;
-  max-width: 480px;
+  max-width: var(--game-card-width);
   border-radius: 12px;
   overflow: hidden;
   background-color: var(--color-surface);
@@ -25,6 +33,9 @@
 
 .game-card__thumbnail {
   width: 100%;
+  /* <img>のwidth/height属性(プレゼンテーショナルヒント)よりCSSのheightを優先させ、
+     aspect-ratioが確実に効くようにする。 */
+  height: auto;
   aspect-ratio: 1.91 / 1;
   object-fit: cover;
   background-color: var(--color-border);
@@ -38,6 +49,10 @@
   margin: 0 0 0.5rem;
   font-size: 1.1rem;
   color: var(--color-primary);
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 
 .game-card__description {
