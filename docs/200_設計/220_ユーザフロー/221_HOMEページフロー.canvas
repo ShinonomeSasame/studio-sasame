@@ -17,7 +17,8 @@
 		{"id":"branchC","type":"text","text":"**分岐**\n遷移先を選択","x":-380,"y":260,"width":220,"height":180,"color":"3"},
 		{"id":"fileC1","type":"file","file":"docs/200_設計/220_ユーザフロー/222_ABOUTページフロー.canvas","x":-60,"y":140,"width":220,"height":90,"color":"1"},
 		{"id":"fileC2","type":"file","file":"docs/200_設計/220_ユーザフロー/223_GALLERYページフロー.canvas","x":-60,"y":260,"width":220,"height":90,"color":"1"},
-		{"id":"fileC3","type":"file","file":"docs/200_設計/220_ユーザフロー/224_CONTACTページフロー.canvas","x":-60,"y":380,"width":220,"height":90,"color":"1"}
+		{"id":"fileC3","type":"file","file":"docs/200_設計/220_ユーザフロー/224_CONTACTページフロー.canvas","x":-60,"y":380,"width":220,"height":90,"color":"1"},
+		{"id":"fileC4","type":"file","file":"docs/200_設計/220_ユーザフロー/226_プライバシーポリシーページフロー.canvas","x":-60,"y":500,"width":220,"height":90,"color":"1"}
 	],
 	"edges":[
 		{"id":"e1","fromNode":"start1","fromSide":"right","toNode":"screen1","toSide":"left"},
@@ -30,6 +31,7 @@
 		{"id":"e8","fromNode":"procC","fromSide":"right","toNode":"branchC","toSide":"left"},
 		{"id":"e9","fromNode":"branchC","fromSide":"top","toNode":"fileC1","toSide":"left"},
 		{"id":"e10","fromNode":"branchC","fromSide":"right","toNode":"fileC2","toSide":"left"},
-		{"id":"e11","fromNode":"branchC","fromSide":"bottom","toNode":"fileC3","toSide":"left"}
+		{"id":"e11","fromNode":"branchC","fromSide":"bottom","toNode":"fileC3","toSide":"left"},
+		{"id":"e12","fromNode":"branchC","fromSide":"bottom","toNode":"fileC4","toSide":"left"}
 	]
 }

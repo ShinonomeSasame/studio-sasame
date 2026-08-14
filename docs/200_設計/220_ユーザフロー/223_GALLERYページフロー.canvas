@@ -16,7 +16,8 @@
 		{"id":"procHam","type":"text","text":"**処理**\nハンバーガーボタンをタップ","x":-680,"y":300,"width":260,"height":100,"color":"6"},
 		{"id":"branchHam","type":"text","text":"**分岐**\n遷移先を選択","x":-360,"y":300,"width":220,"height":180,"color":"3"},
 		{"id":"fileAbout","type":"file","file":"222_ABOUTページフロー.canvas","x":-40,"y":220,"width":220,"height":90,"color":"1"},
-		{"id":"fileContact","type":"file","file":"224_CONTACTページフロー.canvas","x":-40,"y":380,"width":220,"height":90,"color":"1"}
+		{"id":"fileContact","type":"file","file":"224_CONTACTページフロー.canvas","x":-40,"y":380,"width":220,"height":90,"color":"1"},
+		{"id":"filePrivacy","type":"file","file":"226_プライバシーポリシーページフロー.canvas","x":-40,"y":500,"width":220,"height":90,"color":"1"}
 	],
 	"edges":[
 		{"id":"e1","fromNode":"start1","fromSide":"right","toNode":"screen1","toSide":"left"},
@@ -28,6 +29,7 @@
 		{"id":"e7","fromNode":"procHome","fromSide":"right","toNode":"fileHome","toSide":"left"},
 		{"id":"e8","fromNode":"procHam","fromSide":"right","toNode":"branchHam","toSide":"left"},
 		{"id":"e9","fromNode":"branchHam","fromSide":"top","toNode":"fileAbout","toSide":"left"},
-		{"id":"e10","fromNode":"branchHam","fromSide":"bottom","toNode":"fileContact","toSide":"left"}
+		{"id":"e10","fromNode":"branchHam","fromSide":"bottom","toNode":"fileContact","toSide":"left"},
+		{"id":"e11","fromNode":"branchHam","fromSide":"bottom","toNode":"filePrivacy","toSide":"left"}
 	]
 }

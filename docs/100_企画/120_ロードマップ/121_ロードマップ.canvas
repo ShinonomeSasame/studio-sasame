@@ -26,9 +26,10 @@
 		{"id":"dev4","type":"text","text":"**GALLERY画面実装**\n1〜2日","x":-1182,"y":140,"width":128,"height":120,"color":"3"},
 		{"id":"dev5","type":"text","text":"**CONTACT画面実装**\n(EmailJS連携)\n1日","x":-1054,"y":140,"width":64,"height":120,"color":"3"},
 		{"id":"dev6","type":"text","text":"**PLAYページ実装**\n(組み込み場所まで)\n半日〜1日","x":-990,"y":140,"width":64,"height":120,"color":"3"},
-		{"id":"verify1","type":"text","text":"**テスト仕様書項目洗い出し**\n半日","x":-926,"y":300,"width":48,"height":120,"color":"3"},
-		{"id":"verify2","type":"text","text":"**レスポンシブ/主要ブラウザ確認**\n半日〜1日","x":-878,"y":300,"width":64,"height":120,"color":"3"},
-		{"id":"verify3","type":"text","text":"**リリース前チェック実施**\n数時間","x":-814,"y":300,"width":48,"height":120,"color":"3"},
+		{"id":"dev7","type":"text","text":"**プライバシーポリシー画面実装**\n半日以内","x":-926,"y":140,"width":48,"height":120,"color":"3"},
+		{"id":"verify1","type":"text","text":"**テスト仕様書項目洗い出し**\n半日","x":-878,"y":300,"width":48,"height":120,"color":"3"},
+		{"id":"verify2","type":"text","text":"**レスポンシブ/主要ブラウザ確認**\n半日〜1日","x":-830,"y":300,"width":64,"height":120,"color":"3"},
+		{"id":"verify3","type":"text","text":"**リリース前チェック実施**\n数時間","x":-766,"y":300,"width":48,"height":120,"color":"3"},
 		{"id":"other1","type":"text","text":"**SNS投稿開始(目安)**\nゲーム側の構想・世界観がある程度固まってから\n※時期は別リポジトリの進捗次第","x":-1230,"y":460,"width":320,"height":120,"color":"3"}
 	],
 	"edges":[]

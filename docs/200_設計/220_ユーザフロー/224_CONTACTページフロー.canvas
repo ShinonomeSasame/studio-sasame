@@ -20,7 +20,8 @@
 		{"id":"procHam","type":"text","text":"**処理**\nハンバーガーボタンをタップ","x":-900,"y":320,"width":260,"height":100,"color":"6"},
 		{"id":"branchHam","type":"text","text":"**分岐**\n遷移先を選択","x":-620,"y":320,"width":220,"height":180,"color":"3"},
 		{"id":"fileAbout","type":"file","file":"docs/200_設計/220_ユーザフロー/222_ABOUTページフロー.canvas","x":-320,"y":240,"width":220,"height":90,"color":"1"},
-		{"id":"fileGallery","type":"file","file":"docs/200_設計/220_ユーザフロー/223_GALLERYページフロー.canvas","x":-320,"y":400,"width":220,"height":90,"color":"1"}
+		{"id":"fileGallery","type":"file","file":"docs/200_設計/220_ユーザフロー/223_GALLERYページフロー.canvas","x":-320,"y":400,"width":220,"height":90,"color":"1"},
+		{"id":"filePrivacy","type":"file","file":"docs/200_設計/220_ユーザフロー/226_プライバシーポリシーページフロー.canvas","x":-320,"y":520,"width":220,"height":90,"color":"1"}
 	],
 	"edges":[
 		{"id":"e1","fromNode":"start1","fromSide":"right","toNode":"screen1","toSide":"left"},
@@ -37,6 +38,7 @@
 		{"id":"e12","fromNode":"procHome","fromSide":"right","toNode":"fileHome","toSide":"left"},
 		{"id":"e13","fromNode":"procHam","fromSide":"right","toNode":"branchHam","toSide":"left"},
 		{"id":"e14","fromNode":"branchHam","fromSide":"top","toNode":"fileAbout","toSide":"left"},
-		{"id":"e15","fromNode":"branchHam","fromSide":"bottom","toNode":"fileGallery","toSide":"left"}
+		{"id":"e15","fromNode":"branchHam","fromSide":"bottom","toNode":"fileGallery","toSide":"left"},
+		{"id":"e16","fromNode":"branchHam","fromSide":"bottom","toNode":"filePrivacy","toSide":"left"}
 	]
 }
