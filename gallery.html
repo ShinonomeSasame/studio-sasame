@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GALLERY | スタジオささめ</title>
+    <link rel="icon" type="image/png" href="assets/images/favicon/favicon.png" />
+    <link rel="stylesheet" href="src/css/base.css" />
+    <link rel="stylesheet" href="src/css/header.css" />
+    <link rel="stylesheet" href="src/css/card.css" />
+    <link rel="stylesheet" href="src/css/gallery.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <a href="index.html" class="site-header__logo">スタジオささめ</a>
+      <button
+        type="button"
+        id="hamburger-btn"
+        class="hamburger-btn"
+        aria-label="メニューを開く"
+        aria-expanded="false"
+        aria-controls="site-nav"
+      >
+        <span class="hamburger-btn__bar"></span>
+        <span class="hamburger-btn__bar"></span>
+        <span class="hamburger-btn__bar"></span>
+      </button>
+    </header>
+
+    <nav class="site-nav" id="site-nav" aria-hidden="true">
+      <ul class="site-nav__list">
+        <li><a href="index.html">HOME</a></li>
+        <li><a href="about.html">ABOUT</a></li>
+        <li><a href="gallery.html">GALLERY</a></li>
+        <li><a href="contact.html">CONTACT</a></li>
+        <li><a href="privacy-policy.html">プライバシーポリシー</a></li>
+      </ul>
+    </nav>
+
+    <main>
+      <section class="gallery" aria-labelledby="gallery-heading">
+        <h2 id="gallery-heading">GALLERY</h2>
+        <!--
+          公開ゲーム一覧。新着順(公開日が新しいカードほど先に記述する)に並べる。
+          カード自体はsrc/css/card.cssの共通スタイル(.game-card)を再利用し、
+          HOMEページの「最新ゲーム」カードと見た目を揃える。
+          現時点で公開ゲームは1件(プレースホルダー)のみだが、
+          今後カードが増えてもgrid列数だけで折り返せるレイアウトにしている。
+        -->
+        <ul class="gallery__list">
+          <li>
+            <!--
+              プレースホルダー: 実際のゲーム・PLAYページが未実装のため、
+              サムネイル(データURIのSVG)・タイトル・説明文・リンク先はすべて仮の内容。
+              実装後にサムネイル画像/タイトル/説明文/リンク先を差し替える。
+            -->
+            <a class="game-card" href="play.html">
+              <img
+                class="game-card__thumbnail"
+                src="data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1200' height='630'%3E%3Crect width='100%25' height='100%25' fill='%23ddddd6'/%3E%3Ctext x='50%25' y='50%25' font-size='48' font-family='sans-serif' text-anchor='middle' dominant-baseline='middle' fill='%236b6b6b'%3EComing Soon%3C/text%3E%3C/svg%3E"
+                alt=""
+                width="1200"
+                height="630"
+              />
+              <div class="game-card__body">
+                <h3 class="game-card__title">(仮)タイトル未定のゲーム</h3>
+                <p class="game-card__description">
+                  ここに簡単な説明文が入ります。公開準備中のサンプル表示です。
+                </p>
+              </div>
+            </a>
+          </li>
+        </ul>
+      </section>
+    </main>
+
+    <script type="module" src="src/js/header.js"></script>
+  </body>
+</html>

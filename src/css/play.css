@@ -1,0 +1,47 @@
+/*
+ * PLAYページ専用のレイアウト(タイトル・説明文+ゲーム描画エリアの枠)。
+ * #game-stage配下は個別ゲーム(Phaser)専用のスコープとして予約し、
+ * サイト共通CSSのクラス名/idと衝突しないようにする。
+ */
+
+.play-page {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 1.5rem 1.25rem;
+}
+
+.play-page__title {
+  font-size: 1.5rem;
+  margin: 0 0 0.5rem;
+}
+
+.play-page__description {
+  margin: 0 0 1.5rem;
+  color: var(--color-text-sub);
+}
+
+.play-page__stage {
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+/*
+ * #game-stageはゲーム(Phaser)描画専用の予約領域。
+ * ここではプレースホルダー表示に必要な最小限のスタイルのみを与える。
+ * 実装時はPhaserのScale Manager(FITモード)がこの要素のサイズに合わせて
+ * canvasを拡縮する想定のため、幅・アスペクト比の指定は残したまま
+ * canvas要素に置き換えられるようにする。
+ */
+#game-stage {
+  width: 100%;
+  aspect-ratio: 1.91 / 1;
+  background-color: var(--color-border);
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.game-stage__placeholder {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}

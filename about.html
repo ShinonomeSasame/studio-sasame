@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ABOUT | スタジオささめ</title>
+    <link rel="icon" type="image/png" href="assets/images/favicon/favicon.png" />
+    <link rel="stylesheet" href="src/css/base.css" />
+    <link rel="stylesheet" href="src/css/header.css" />
+    <link rel="stylesheet" href="src/css/about.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <a href="index.html" class="site-header__logo">スタジオささめ</a>
+      <button
+        type="button"
+        id="hamburger-btn"
+        class="hamburger-btn"
+        aria-label="メニューを開く"
+        aria-expanded="false"
+        aria-controls="site-nav"
+      >
+        <span class="hamburger-btn__bar"></span>
+        <span class="hamburger-btn__bar"></span>
+        <span class="hamburger-btn__bar"></span>
+      </button>
+    </header>
+
+    <nav class="site-nav" id="site-nav" aria-hidden="true">
+      <ul class="site-nav__list">
+        <li><a href="index.html">HOME</a></li>
+        <li><a href="about.html">ABOUT</a></li>
+        <li><a href="gallery.html">GALLERY</a></li>
+        <li><a href="contact.html">CONTACT</a></li>
+        <li><a href="privacy-policy.html">プライバシーポリシー</a></li>
+      </ul>
+    </nav>
+
+    <main>
+      <!--
+        プレースホルダー: 作者プロフィールの文言・アイコン画像は未確定のため、
+        サンプルの文言・データURIのシンプルなSVGアイコンで仮置きしている。
+        実際の文言・アイコン画像は確定時に差し替える。
+      -->
+      <section class="author-profile" aria-labelledby="author-profile-heading">
+        <h2 id="author-profile-heading">作者プロフィール</h2>
+        <div class="author-profile__body">
+          <img
+            class="author-profile__icon"
+            src="data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Crect width='100%25' height='100%25' fill='%23ddddd6'/%3E%3Ctext x='50%25' y='50%25' font-size='24' font-family='sans-serif' text-anchor='middle' dominant-baseline='middle' fill='%236b6b6b'%3E仮アイコン%3C/text%3E%3C/svg%3E"
+            alt=""
+            width="160"
+            height="160"
+          />
+          <div class="author-profile__text">
+            <p class="author-profile__name">東雲ささめ(仮名)</p>
+            <p>
+              ここに作者プロフィールのサンプル文言が入ります。個人でゲームを企画・開発しており、
+              広告に煩わされない落ち着いた環境で、遊んでくれる人に一つ一つの作品を楽しんでもらえるよう
+              心がけています。具体的な経歴・自己紹介文は確定後に差し替えます。
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!--
+        プレースホルダー: サイト概要の文言は未確定のため、サンプル文言を仮置きしている。
+      -->
+      <section class="site-overview" aria-labelledby="site-overview-heading">
+        <h2 id="site-overview-heading">サイト概要</h2>
+        <p>
+          「スタジオささめ」は、個人で制作したブラウザゲームを公開するサイトです。ジャンルを問わず、
+          思いついたアイデアを一つずつ形にして公開していきます。制作した作品はGALLERYページに新着順で
+          並びますので、気になるゲームを見つけたらそのままブラウザ上でプレイできます。
+        </p>
+      </section>
+
+      <!--
+        プレースホルダー: SNSアカウントのURL・アイコン画像は未確定のため、
+        サンプルのURL・データURIのシンプルなSVGアイコンで仮置きしている。
+        実際のURL・アイコン画像は確定時に差し替える。
+      -->
+      <section class="sns-links" aria-labelledby="sns-links-heading">
+        <h2 id="sns-links-heading">SNSリンク</h2>
+        <ul class="sns-links__list">
+          <li>
+            <a
+              class="sns-links__link"
+              href="https://x.com/example_placeholder"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <img
+                class="sns-links__icon"
+                src="data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40'%3E%3Crect width='100%25' height='100%25' rx='8' fill='%23165e83'/%3E%3Ctext x='50%25' y='50%25' font-size='16' font-family='sans-serif' text-anchor='middle' dominant-baseline='middle' fill='%23ffffff'%3EX%3C/text%3E%3C/svg%3E"
+                alt=""
+                width="40"
+                height="40"
+              />
+              <span>X (旧Twitter)</span>
+            </a>
+          </li>
+        </ul>
+      </section>
+    </main>
+
+    <script type="module" src="src/js/header.js"></script>
+  </body>
+</html>

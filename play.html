@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>(仮)タイトル未定のゲーム | スタジオささめ</title>
+    <link rel="icon" type="image/png" href="assets/images/favicon/favicon.png" />
+    <link rel="stylesheet" href="src/css/base.css" />
+    <link rel="stylesheet" href="src/css/header.css" />
+    <link rel="stylesheet" href="src/css/play.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <a href="index.html" class="site-header__logo">スタジオささめ</a>
+      <button
+        type="button"
+        id="hamburger-btn"
+        class="hamburger-btn"
+        aria-label="メニューを開く"
+        aria-expanded="false"
+        aria-controls="site-nav"
+      >
+        <span class="hamburger-btn__bar"></span>
+        <span class="hamburger-btn__bar"></span>
+        <span class="hamburger-btn__bar"></span>
+      </button>
+    </header>
+
+    <nav class="site-nav" id="site-nav" aria-hidden="true">
+      <ul class="site-nav__list">
+        <li><a href="index.html">HOME</a></li>
+        <li><a href="about.html">ABOUT</a></li>
+        <li><a href="gallery.html">GALLERY</a></li>
+        <li><a href="contact.html">CONTACT</a></li>
+        <li><a href="privacy-policy.html">プライバシーポリシー</a></li>
+      </ul>
+    </nav>
+
+    <main>
+      <!--
+        プレースホルダー: 実際のゲームタイトル/説明文/サムネイルは未確定のため、
+        GALLERYカード(gallery.html)と同じ仮の文言・データURIのSVGを仮置きしている。
+        実装後はGALLERYカードと同じ内容に差し替える。
+      -->
+      <article class="play-page">
+        <header class="play-page__meta">
+          <h1 class="play-page__title">(仮)タイトル未定のゲーム</h1>
+          <p class="play-page__description">
+            ここに簡単な説明文が入ります。公開準備中のサンプル表示です。
+          </p>
+        </header>
+
+        <div class="play-page__stage">
+          <!--
+            ゲーム描画エリア。id="game-stage"配下は個別ゲーム(Phaser)専用のマークアップ・
+            CSS/JSのスコープとして予約する。個別ゲームのCSSはこのid配下にセレクタを
+            スコープさせることで、サイト共通CSS(base.css/header.css等)のクラス名/idと
+            衝突しないようにする(詳細はdocs/200_設計/230_コアシステム/231_コアシステム.md参照)。
+            Phaser本体の組み込み(canvas要素の追加、Scale Managerの設定等)はIssue #19の
+            範囲外であり、今回はスクリプトを含めない。
+          -->
+          <div id="game-stage" class="game-stage">
+            <img
+              class="game-stage__placeholder"
+              src="data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1200' height='630'%3E%3Crect width='100%25' height='100%25' fill='%23ddddd6'/%3E%3Ctext x='50%25' y='50%25' font-size='48' font-family='sans-serif' text-anchor='middle' dominant-baseline='middle' fill='%236b6b6b'%3EComing Soon%3C/text%3E%3C/svg%3E"
+              alt=""
+              width="1200"
+              height="630"
+            />
+          </div>
+        </div>
+      </article>
+    </main>
+
+    <script type="module" src="src/js/header.js"></script>
+  </body>
+</html>
