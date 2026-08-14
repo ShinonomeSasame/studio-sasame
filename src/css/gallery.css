@@ -29,6 +29,9 @@
   padding: 0;
   display: flex;
   flex-wrap: wrap;
+  /* カードが1件のみの場合や、2列レイアウトの折り返し後に1件だけ残る行でも
+     コンテナ内で中央揃えになるようにする。 */
+  justify-content: center;
   gap: 1.5rem;
 }
 

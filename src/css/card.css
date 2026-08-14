@@ -13,7 +13,13 @@
 
 .game-card {
   display: block;
+  /* width:autoのままではmargin:autoによる中央揃えが効かない(仕様上、widthが
+     autoの場合はmargin-left/right autoは0として解決されてしまう)。
+     width:100%を明示し、max-widthで上限を掛けたうえでmargin:0 autoにすることで、
+     コンテナ幅がカード幅より広い場合(HOMEの1件表示など)でも水平中央揃えされる。 */
+  width: 100%;
   max-width: var(--game-card-width);
+  margin: 0 auto;
   border-radius: 12px;
   overflow: hidden;
   background-color: var(--color-surface);
