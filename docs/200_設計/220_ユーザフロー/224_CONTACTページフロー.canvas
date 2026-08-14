@@ -1,0 +1,42 @@
+{
+	"nodes":[
+		{"id":"legend0","type":"text","text":"**フローの構成要素**\n","x":-1800,"y":-800,"width":920,"height":240},
+		{"id":"legend1","type":"text","text":"**開始**","x":-1780,"y":-740,"width":160,"height":160,"color":"4"},
+		{"id":"legend2","type":"text","text":"**終了**","x":-1600,"y":-740,"width":160,"height":160,"color":"1"},
+		{"id":"legend3","type":"text","text":"**画面／モーダル**","x":-1420,"y":-740,"width":160,"height":160,"color":"5"},
+		{"id":"legend4","type":"text","text":"**分岐**","x":-1240,"y":-740,"width":160,"height":160,"color":"3"},
+		{"id":"legend5","type":"text","text":"**処理**","x":-1060,"y":-740,"width":160,"height":160,"color":"6"},
+		{"id":"start1","type":"text","text":"**開始**\n他ページから遷移 or 直接アクセス","x":-1800,"y":0,"width":280,"height":110,"color":"4"},
+		{"id":"screen1","type":"text","text":"**画面**\nCONTACT画面表示\n(お問い合わせフォーム)","x":-1480,"y":0,"width":260,"height":110,"color":"5"},
+		{"id":"branchMain","type":"text","text":"**分岐**\n次のアクションは？","x":-1180,"y":0,"width":220,"height":220,"color":"3"},
+		{"id":"procInput","type":"text","text":"**処理**\nフォーム項目を入力する","x":-900,"y":-320,"width":240,"height":100,"color":"6"},
+		{"id":"procSubmit","type":"text","text":"**処理**\n送信ボタンをタップ\n(EmailJS経由で送信)","x":-620,"y":-320,"width":260,"height":110,"color":"6"},
+		{"id":"branchResult","type":"text","text":"**分岐**\n送信結果","x":-320,"y":-320,"width":200,"height":180,"color":"3"},
+		{"id":"screenSuccess","type":"text","text":"**画面**\n送信完了メッセージを表示","x":-40,"y":-420,"width":240,"height":100,"color":"5"},
+		{"id":"endStay","type":"text","text":"**終了**\nCONTACT画面に留まる","x":280,"y":-420,"width":220,"height":90,"color":"1"},
+		{"id":"screenError","type":"text","text":"**画面**\nエラーメッセージを表示\n(再入力を促す)","x":-40,"y":-220,"width":240,"height":100,"color":"5"},
+		{"id":"procHome","type":"text","text":"**処理**\nヘッダーのロゴ(HOMEリンク)をタップ","x":-900,"y":0,"width":260,"height":100,"color":"6"},
+		{"id":"fileHome","type":"file","file":"docs/200_設計/220_ユーザフロー/221_HOMEページフロー.canvas","x":-620,"y":0,"width":220,"height":90,"color":"1"},
+		{"id":"procHam","type":"text","text":"**処理**\nハンバーガーボタンをタップ","x":-900,"y":320,"width":260,"height":100,"color":"6"},
+		{"id":"branchHam","type":"text","text":"**分岐**\n遷移先を選択","x":-620,"y":320,"width":220,"height":180,"color":"3"},
+		{"id":"fileAbout","type":"file","file":"docs/200_設計/220_ユーザフロー/222_ABOUTページフロー.canvas","x":-320,"y":240,"width":220,"height":90,"color":"1"},
+		{"id":"fileGallery","type":"file","file":"docs/200_設計/220_ユーザフロー/223_GALLERYページフロー.canvas","x":-320,"y":400,"width":220,"height":90,"color":"1"}
+	],
+	"edges":[
+		{"id":"e1","fromNode":"start1","fromSide":"right","toNode":"screen1","toSide":"left"},
+		{"id":"e2","fromNode":"screen1","fromSide":"right","toNode":"branchMain","toSide":"left"},
+		{"id":"e3","fromNode":"branchMain","fromSide":"top","toNode":"procInput","toSide":"left"},
+		{"id":"e4","fromNode":"branchMain","fromSide":"right","toNode":"procHome","toSide":"left"},
+		{"id":"e5","fromNode":"branchMain","fromSide":"bottom","toNode":"procHam","toSide":"left"},
+		{"id":"e6","fromNode":"procInput","fromSide":"right","toNode":"procSubmit","toSide":"left"},
+		{"id":"e7","fromNode":"procSubmit","fromSide":"right","toNode":"branchResult","toSide":"left"},
+		{"id":"e8","fromNode":"branchResult","fromSide":"top","toNode":"screenSuccess","toSide":"left"},
+		{"id":"e9","fromNode":"screenSuccess","fromSide":"right","toNode":"endStay","toSide":"left"},
+		{"id":"e10","fromNode":"branchResult","fromSide":"bottom","toNode":"screenError","toSide":"left"},
+		{"id":"e11","fromNode":"screenError","fromSide":"bottom","toNode":"procInput","toSide":"bottom","label":"再入力"},
+		{"id":"e12","fromNode":"procHome","fromSide":"right","toNode":"fileHome","toSide":"left"},
+		{"id":"e13","fromNode":"procHam","fromSide":"right","toNode":"branchHam","toSide":"left"},
+		{"id":"e14","fromNode":"branchHam","fromSide":"top","toNode":"fileAbout","toSide":"left"},
+		{"id":"e15","fromNode":"branchHam","fromSide":"bottom","toNode":"fileGallery","toSide":"left"}
+	]
+}

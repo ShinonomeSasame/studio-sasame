@@ -1,0 +1,35 @@
+{
+	"nodes":[
+		{"id":"legend0","type":"text","text":"**フローの構成要素**\n","x":-1600,"y":-700,"width":920,"height":240},
+		{"id":"legend1","type":"text","text":"**開始**","x":-1580,"y":-640,"width":160,"height":160,"color":"4"},
+		{"id":"legend2","type":"text","text":"**終了**","x":-1400,"y":-640,"width":160,"height":160,"color":"1"},
+		{"id":"legend3","type":"text","text":"**画面／モーダル**","x":-1220,"y":-640,"width":160,"height":160,"color":"5"},
+		{"id":"legend4","type":"text","text":"**分岐**","x":-1040,"y":-640,"width":160,"height":160,"color":"3"},
+		{"id":"legend5","type":"text","text":"**処理**","x":-860,"y":-640,"width":160,"height":160,"color":"6"},
+		{"id":"start1","type":"text","text":"**開始**\n直接アクセス\n(URL入力・ブックマーク・SNSプロフィール等)","x":-1600,"y":0,"width":260,"height":120,"color":"4"},
+		{"id":"screen1","type":"text","text":"**画面**\nHOME画面表示\n(お知らせ・最新ゲームを掲載)","x":-1300,"y":0,"width":260,"height":120,"color":"5"},
+		{"id":"branch1","type":"text","text":"**分岐**\n次のアクションは？","x":-1000,"y":0,"width":220,"height":180,"color":"3"},
+		{"id":"procA","type":"text","text":"**処理**\n最新ゲームのサムネイル/リンクをタップ","x":-720,"y":-260,"width":260,"height":100,"color":"6"},
+		{"id":"fileA","type":"file","file":"docs/200_設計/220_ユーザフロー/225_PLAYページフロー.canvas","x":-380,"y":-260,"width":260,"height":100,"color":"1"},
+		{"id":"procB","type":"text","text":"**処理**\nヘッダーのロゴ(HOMEリンク)をタップ","x":-720,"y":0,"width":260,"height":100,"color":"6"},
+		{"id":"endB","type":"text","text":"**終了**\nHOME画面に留まる(現在地)","x":-380,"y":0,"width":240,"height":100,"color":"1"},
+		{"id":"procC","type":"text","text":"**処理**\nハンバーガーボタンをタップ","x":-720,"y":260,"width":260,"height":100,"color":"6"},
+		{"id":"branchC","type":"text","text":"**分岐**\n遷移先を選択","x":-380,"y":260,"width":220,"height":180,"color":"3"},
+		{"id":"fileC1","type":"file","file":"docs/200_設計/220_ユーザフロー/222_ABOUTページフロー.canvas","x":-60,"y":140,"width":220,"height":90,"color":"1"},
+		{"id":"fileC2","type":"file","file":"docs/200_設計/220_ユーザフロー/223_GALLERYページフロー.canvas","x":-60,"y":260,"width":220,"height":90,"color":"1"},
+		{"id":"fileC3","type":"file","file":"docs/200_設計/220_ユーザフロー/224_CONTACTページフロー.canvas","x":-60,"y":380,"width":220,"height":90,"color":"1"}
+	],
+	"edges":[
+		{"id":"e1","fromNode":"start1","fromSide":"right","toNode":"screen1","toSide":"left"},
+		{"id":"e2","fromNode":"screen1","fromSide":"right","toNode":"branch1","toSide":"left"},
+		{"id":"e3","fromNode":"branch1","fromSide":"top","toNode":"procA","toSide":"left"},
+		{"id":"e4","fromNode":"branch1","fromSide":"right","toNode":"procB","toSide":"left"},
+		{"id":"e5","fromNode":"branch1","fromSide":"bottom","toNode":"procC","toSide":"left"},
+		{"id":"e6","fromNode":"procA","fromSide":"right","toNode":"fileA","toSide":"left"},
+		{"id":"e7","fromNode":"procB","fromSide":"right","toNode":"endB","toSide":"left"},
+		{"id":"e8","fromNode":"procC","fromSide":"right","toNode":"branchC","toSide":"left"},
+		{"id":"e9","fromNode":"branchC","fromSide":"top","toNode":"fileC1","toSide":"left"},
+		{"id":"e10","fromNode":"branchC","fromSide":"right","toNode":"fileC2","toSide":"left"},
+		{"id":"e11","fromNode":"branchC","fromSide":"bottom","toNode":"fileC3","toSide":"left"}
+	]
+}

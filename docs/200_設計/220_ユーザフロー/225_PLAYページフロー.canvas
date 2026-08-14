@@ -1,0 +1,39 @@
+{
+	"nodes":[
+		{"id":"legend0","type":"text","text":"**フローの構成要素**\n","x":-1600,"y":-800,"width":920,"height":240},
+		{"id":"legend1","type":"text","text":"**開始**","x":-1580,"y":-740,"width":160,"height":160,"color":"4"},
+		{"id":"legend2","type":"text","text":"**終了**","x":-1400,"y":-740,"width":160,"height":160,"color":"1"},
+		{"id":"legend3","type":"text","text":"**画面／モーダル**","x":-1220,"y":-740,"width":160,"height":160,"color":"5"},
+		{"id":"legend4","type":"text","text":"**分岐**","x":-1040,"y":-740,"width":160,"height":160,"color":"3"},
+		{"id":"legend5","type":"text","text":"**処理**","x":-860,"y":-740,"width":160,"height":160,"color":"6"},
+		{"id":"startA","type":"text","text":"**開始**\nGALLERYカードのリンクから遷移","x":-1600,"y":-150,"width":260,"height":100,"color":"4"},
+		{"id":"startB","type":"text","text":"**開始**\nSNS投稿から直接アクセス\n(GALLERY非経由)","x":-1600,"y":150,"width":260,"height":110,"color":"4"},
+		{"id":"screen1","type":"text","text":"**画面**\nプレイページ表示\n(共通ヘッダー + ゲームcanvas)","x":-1260,"y":0,"width":260,"height":120,"color":"5"},
+		{"id":"procLoad","type":"text","text":"**処理**\nPhaserゲームを読み込み・canvas描画\n(Scale ManagerのFITモードで拡縮)","x":-940,"y":0,"width":280,"height":120,"color":"6"},
+		{"id":"branch1","type":"text","text":"**分岐**\n次のアクションは？","x":-600,"y":0,"width":220,"height":220,"color":"3"},
+		{"id":"procPlay","type":"text","text":"**処理**\nゲームをプレイする","x":-320,"y":-260,"width":220,"height":100,"color":"6"},
+		{"id":"endPlay","type":"text","text":"**終了**\nプレイ継続\n(ゲーム内で完結)","x":-40,"y":-260,"width":220,"height":90,"color":"1"},
+		{"id":"procHome","type":"text","text":"**処理**\nヘッダーのロゴ(HOMEリンク)をタップ","x":-320,"y":0,"width":240,"height":100,"color":"6"},
+		{"id":"fileHome","type":"file","file":"docs/200_設計/220_ユーザフロー/221_HOMEページフロー.canvas","x":-40,"y":0,"width":200,"height":90,"color":"1"},
+		{"id":"procHam","type":"text","text":"**処理**\nハンバーガーボタンをタップ","x":-320,"y":260,"width":240,"height":100,"color":"6"},
+		{"id":"branchHam","type":"text","text":"**分岐**\n遷移先を選択","x":-40,"y":260,"width":220,"height":200,"color":"3"},
+		{"id":"fileAbout","type":"file","file":"docs/200_設計/220_ユーザフロー/222_ABOUTページフロー.canvas","x":260,"y":140,"width":220,"height":90,"color":"1"},
+		{"id":"fileGallery","type":"file","file":"docs/200_設計/220_ユーザフロー/223_GALLERYページフロー.canvas","x":260,"y":260,"width":220,"height":90,"color":"1"},
+		{"id":"fileContact","type":"file","file":"docs/200_設計/220_ユーザフロー/224_CONTACTページフロー.canvas","x":260,"y":380,"width":220,"height":90,"color":"1"}
+	],
+	"edges":[
+		{"id":"e1","fromNode":"startA","fromSide":"right","toNode":"screen1","toSide":"left"},
+		{"id":"e2","fromNode":"startB","fromSide":"right","toNode":"screen1","toSide":"left"},
+		{"id":"e3","fromNode":"screen1","fromSide":"right","toNode":"procLoad","toSide":"left"},
+		{"id":"e4","fromNode":"procLoad","fromSide":"right","toNode":"branch1","toSide":"left"},
+		{"id":"e5","fromNode":"branch1","fromSide":"top","toNode":"procPlay","toSide":"left"},
+		{"id":"e6","fromNode":"branch1","fromSide":"right","toNode":"procHome","toSide":"left"},
+		{"id":"e7","fromNode":"branch1","fromSide":"bottom","toNode":"procHam","toSide":"left"},
+		{"id":"e8","fromNode":"procPlay","fromSide":"right","toNode":"endPlay","toSide":"left"},
+		{"id":"e9","fromNode":"procHome","fromSide":"right","toNode":"fileHome","toSide":"left"},
+		{"id":"e10","fromNode":"procHam","fromSide":"right","toNode":"branchHam","toSide":"left"},
+		{"id":"e11","fromNode":"branchHam","fromSide":"top","toNode":"fileAbout","toSide":"left"},
+		{"id":"e12","fromNode":"branchHam","fromSide":"right","toNode":"fileGallery","toSide":"left"},
+		{"id":"e13","fromNode":"branchHam","fromSide":"bottom","toNode":"fileContact","toSide":"left"}
+	]
+}

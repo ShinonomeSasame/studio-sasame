@@ -1,0 +1,33 @@
+{
+	"nodes":[
+		{"id":"legend0","type":"text","text":"**フローの構成要素**\n","x":-1600,"y":-700,"width":920,"height":240},
+		{"id":"legend1","type":"text","text":"**開始**","x":-1580,"y":-640,"width":160,"height":160,"color":"4"},
+		{"id":"legend2","type":"text","text":"**終了**","x":-1400,"y":-640,"width":160,"height":160,"color":"1"},
+		{"id":"legend3","type":"text","text":"**画面／モーダル**","x":-1220,"y":-640,"width":160,"height":160,"color":"5"},
+		{"id":"legend4","type":"text","text":"**分岐**","x":-1040,"y":-640,"width":160,"height":160,"color":"3"},
+		{"id":"legend5","type":"text","text":"**処理**","x":-860,"y":-640,"width":160,"height":160,"color":"6"},
+		{"id":"start1","type":"text","text":"**開始**\n他ページのハンバーガーメニュー経由 or 直接アクセス","x":-1600,"y":0,"width":280,"height":120,"color":"4"},
+		{"id":"screen1","type":"text","text":"**画面**\nABOUT画面表示\n(作者プロフィール・サイト概要・SNSリンク)","x":-1280,"y":0,"width":280,"height":130,"color":"5"},
+		{"id":"branch1","type":"text","text":"**分岐**\n次のアクションは？","x":-960,"y":0,"width":220,"height":220,"color":"3"},
+		{"id":"procSNS","type":"text","text":"**処理**\nSNSアカウントリンクをタップ","x":-680,"y":-300,"width":260,"height":100,"color":"6"},
+		{"id":"endSNS","type":"text","text":"**終了**\nSNSアカウントページへ離脱\n(サイト外部)","x":-340,"y":-300,"width":260,"height":100,"color":"1"},
+		{"id":"procHome","type":"text","text":"**処理**\nヘッダーのロゴ(HOMEリンク)をタップ","x":-680,"y":0,"width":260,"height":100,"color":"6"},
+		{"id":"fileHome","type":"file","file":"docs/200_設計/220_ユーザフロー/221_HOMEページフロー.canvas","x":-340,"y":0,"width":220,"height":90,"color":"1"},
+		{"id":"procHam","type":"text","text":"**処理**\nハンバーガーボタンをタップ","x":-680,"y":300,"width":260,"height":100,"color":"6"},
+		{"id":"branchHam","type":"text","text":"**分岐**\n遷移先を選択","x":-340,"y":300,"width":220,"height":180,"color":"3"},
+		{"id":"fileGallery","type":"file","file":"docs/200_設計/220_ユーザフロー/223_GALLERYページフロー.canvas","x":-20,"y":220,"width":220,"height":90,"color":"1"},
+		{"id":"fileContact","type":"file","file":"docs/200_設計/220_ユーザフロー/224_CONTACTページフロー.canvas","x":-20,"y":380,"width":220,"height":90,"color":"1"}
+	],
+	"edges":[
+		{"id":"e1","fromNode":"start1","fromSide":"right","toNode":"screen1","toSide":"left"},
+		{"id":"e2","fromNode":"screen1","fromSide":"right","toNode":"branch1","toSide":"left"},
+		{"id":"e3","fromNode":"branch1","fromSide":"top","toNode":"procSNS","toSide":"left"},
+		{"id":"e4","fromNode":"branch1","fromSide":"right","toNode":"procHome","toSide":"left"},
+		{"id":"e5","fromNode":"branch1","fromSide":"bottom","toNode":"procHam","toSide":"left"},
+		{"id":"e6","fromNode":"procSNS","fromSide":"right","toNode":"endSNS","toSide":"left"},
+		{"id":"e7","fromNode":"procHome","fromSide":"right","toNode":"fileHome","toSide":"left"},
+		{"id":"e8","fromNode":"procHam","fromSide":"right","toNode":"branchHam","toSide":"left"},
+		{"id":"e9","fromNode":"branchHam","fromSide":"top","toNode":"fileGallery","toSide":"left"},
+		{"id":"e10","fromNode":"branchHam","fromSide":"bottom","toNode":"fileContact","toSide":"left"}
+	]
+}
