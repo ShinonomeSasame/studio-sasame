@@ -3,7 +3,82 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>sandbox-project</title>
+    <title>スタジオささめ</title>
+    <link rel="icon" type="image/png" href="assets/images/favicon/favicon.png" />
+    <link rel="stylesheet" href="src/css/base.css" />
+    <link rel="stylesheet" href="src/css/header.css" />
+    <link rel="stylesheet" href="src/css/card.css" />
+    <link rel="stylesheet" href="src/css/home.css" />
   </head>
-  <body></body>
+  <body>
+    <header class="site-header">
+      <a href="index.html" class="site-header__logo">スタジオささめ</a>
+      <button
+        type="button"
+        id="hamburger-btn"
+        class="hamburger-btn"
+        aria-label="メニューを開く"
+        aria-expanded="false"
+        aria-controls="site-nav"
+      >
+        <span class="hamburger-btn__bar"></span>
+        <span class="hamburger-btn__bar"></span>
+        <span class="hamburger-btn__bar"></span>
+      </button>
+    </header>
+
+    <nav class="site-nav" id="site-nav" aria-hidden="true">
+      <ul class="site-nav__list">
+        <li><a href="index.html">HOME</a></li>
+        <li><a href="about.html">ABOUT</a></li>
+        <li><a href="gallery.html">GALLERY</a></li>
+        <li><a href="contact.html">CONTACT</a></li>
+        <li><a href="privacy-policy.html">プライバシーポリシー</a></li>
+      </ul>
+    </nav>
+
+    <main>
+      <section class="announcements" aria-labelledby="announcements-heading">
+        <h2 id="announcements-heading">お知らせ</h2>
+        <ul class="announcements__list">
+          <li>
+            <time datetime="2026-08-14">2026.08.14</time>
+            <p>「スタジオささめ」サイトを公開しました。</p>
+          </li>
+          <li>
+            <time datetime="2026-08-14">2026.08.14</time>
+            <p>サンプルのお知らせ文言です。メンテナンス告知や新作公開告知をここに掲載します。</p>
+          </li>
+        </ul>
+      </section>
+
+      <section class="latest-game" aria-labelledby="latest-game-heading">
+        <h2 id="latest-game-heading">最新ゲーム</h2>
+        <!--
+          プレースホルダー: 実際のゲーム・PLAYページが未実装のため、
+          サムネイル(データURIのSVG)・タイトル・説明文・リンク先はすべて仮の内容。
+          実装後にサムネイル画像/タイトル/説明文/リンク先を差し替える。
+          リンク先はPLAYページの正式な命名規則(Issue #19以降で決定)が
+          確定するまでの暫定パスであり、現時点ではページ未実装のため404になる。
+        -->
+        <a class="game-card" href="play.html">
+          <img
+            class="game-card__thumbnail"
+            src="data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1200' height='630'%3E%3Crect width='100%25' height='100%25' fill='%23ddddd6'/%3E%3Ctext x='50%25' y='50%25' font-size='48' font-family='sans-serif' text-anchor='middle' dominant-baseline='middle' fill='%236b6b6b'%3EComing Soon%3C/text%3E%3C/svg%3E"
+            alt=""
+            width="1200"
+            height="630"
+          />
+          <div class="game-card__body">
+            <h3 class="game-card__title">(仮)タイトル未定のゲーム</h3>
+            <p class="game-card__description">
+              ここに簡単な説明文が入ります。公開準備中のサンプル表示です。
+            </p>
+          </div>
+        </a>
+      </section>
+    </main>
+
+    <script type="module" src="src/js/header.js"></script>
+  </body>
 </html>

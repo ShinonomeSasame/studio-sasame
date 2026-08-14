@@ -1,0 +1,77 @@
+/*
+ * サイト全体で使う基盤CSS(カラーパレット・タイポグラフィ・リセット)
+ * 全ページの<head>で読み込むことを想定する。
+ */
+
+@font-face {
+  font-family: "TanukiMagic";
+  src: url("../../assets/fonts/TanukiMagic.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  /* 背景 */
+  --color-bg: #faf9f6; /* オフホワイト背景 */
+  --color-surface: #ffffff; /* カード等の前面背景 */
+
+  /* キーカラー(藍色系) */
+  --color-primary: #165e83; /* 見出し・リンク・ボタンなど */
+  --color-primary-dark: #0e3f58; /* ホバー・アクティブ時 */
+  --color-primary-light: #4a89ac; /* 補助的な装飾・アクセント */
+
+  /* テキスト */
+  --color-text: #333333; /* 本文(純黒を避けた濃いグレー) */
+  --color-text-sub: #6b6b6b; /* キャプション等の補助テキスト */
+
+  /* 枠線・区切り線 */
+  --color-border: #ddddd6;
+
+  /* タイポグラフィ */
+  --font-base: "TanukiMagic", sans-serif;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-base);
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  line-height: 1.7;
+}
+
+a {
+  color: var(--color-primary);
+}
+
+a:hover,
+a:focus-visible {
+  color: var(--color-primary-dark);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-base);
+  color: var(--color-primary);
+  font-weight: normal; /* 単一ウェイトのフォントのためweight指定はしない */
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}

@@ -1,0 +1,127 @@
+/*
+ * 全ページ共通ヘッダー(ロゴ+ハンバーガーボタン)と、
+ * ハンバーガーメニュー(スライドインナビゲーション)のスタイル。
+ */
+
+.site-header {
+  position: sticky;
+  top: 0;
+  /*
+   * .site-headerと.site-nav(スライドインナビ)はbody直下の兄弟要素であり、
+   * それぞれが独立したスタッキングコンテキストを形成する。
+   * ヘッダー内のボタンにどれだけ高いz-indexを与えても、
+   * それはヘッダーのスタッキングコンテキスト内でのみ有効なため、
+   * ヘッダー自体のz-indexが.site-navより低いと、
+   * ヘッダー(と内部のハンバーガーボタン)がナビの背面に回り込み、
+   * メニュー展開中は実際のクリックがボタンに届かなくなる。
+   * そのため.site-header自体のz-indexを.site-navより高く設定する。
+   */
+  z-index: 200;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.75rem 1.25rem;
+  background-color: var(--color-bg);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.site-header__logo {
+  font-size: 1.25rem;
+  color: var(--color-primary);
+  text-decoration: none;
+}
+
+.site-header__logo:hover,
+.site-header__logo:focus-visible {
+  color: var(--color-primary-dark);
+}
+
+/* ハンバーガーボタン(押下で×アイコンに切り替わる) */
+.hamburger-btn {
+  position: relative;
+  width: 40px;
+  height: 40px;
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  z-index: 1; /* .site-header内のロゴ等より手前に表示する(.site-navとの前後関係は.site-header自体のz-indexで決まる) */
+}
+
+.hamburger-btn__bar {
+  position: absolute;
+  left: 8px;
+  right: 8px;
+  height: 2px;
+  background-color: var(--color-primary);
+  transition:
+    transform 0.3s ease,
+    opacity 0.3s ease,
+    top 0.3s ease;
+}
+
+.hamburger-btn__bar:nth-child(1) {
+  top: 13px;
+}
+
+.hamburger-btn__bar:nth-child(2) {
+  top: 19px;
+}
+
+.hamburger-btn__bar:nth-child(3) {
+  top: 25px;
+}
+
+.hamburger-btn.is-open .hamburger-btn__bar:nth-child(1) {
+  top: 19px;
+  transform: rotate(45deg);
+}
+
+.hamburger-btn.is-open .hamburger-btn__bar:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger-btn.is-open .hamburger-btn__bar:nth-child(3) {
+  top: 19px;
+  transform: rotate(-45deg);
+}
+
+/* スライドインナビゲーション(画面右端からスライドイン/アウト) */
+.site-nav {
+  position: fixed;
+  top: 0;
+  right: 0;
+  height: 100%;
+  width: min(280px, 80vw);
+  background-color: var(--color-surface);
+  box-shadow: -2px 0 12px rgba(0, 0, 0, 0.15);
+  transform: translateX(100%);
+  transition: transform 0.3s ease;
+  z-index: 100; /* .site-header(z-index:200)より低くし、ヘッダーが常にナビより手前に描画されるようにする */
+  padding-top: 4.5rem;
+  overflow-y: auto;
+}
+
+.site-nav.is-open {
+  transform: translateX(0);
+}
+
+.site-nav__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.site-nav__list li a {
+  display: block;
+  padding: 1rem 1.5rem;
+  color: var(--color-text);
+  text-decoration: none;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.site-nav__list li a:hover,
+.site-nav__list li a:focus-visible {
+  color: var(--color-primary);
+  background-color: var(--color-bg);
+}

@@ -1,0 +1,51 @@
+/*
+ * ゲーム紹介カードの共通スタイル(HOME最新ゲーム欄・GALLERYページで共用する想定)。
+ * サムネイル比率はOGP推奨比率(1.91:1)に統一する。
+ */
+
+.game-card {
+  display: block;
+  max-width: 480px;
+  border-radius: 12px;
+  overflow: hidden;
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  text-decoration: none;
+  color: inherit;
+  transition:
+    box-shadow 0.2s ease,
+    transform 0.2s ease;
+}
+
+.game-card:hover,
+.game-card:focus-visible {
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+  transform: translateY(-2px);
+}
+
+.game-card__thumbnail {
+  width: 100%;
+  aspect-ratio: 1.91 / 1;
+  object-fit: cover;
+  background-color: var(--color-border);
+}
+
+.game-card__body {
+  padding: 1rem;
+}
+
+.game-card__title {
+  margin: 0 0 0.5rem;
+  font-size: 1.1rem;
+  color: var(--color-primary);
+}
+
+.game-card__description {
+  margin: 0;
+  font-size: 0.95rem;
+  color: var(--color-text-sub);
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
