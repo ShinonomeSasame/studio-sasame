@@ -1,0 +1,635 @@
+/*
+ * サイト全体のCSSを1ファイルに統合したもの。
+ * ビルドレス方針のためファイルの数自体を増やさず、全ページで
+ * この1ファイルのみを<link rel="stylesheet">で読み込む(詳細は決定メモ参照)。
+ * 各ページ専用のスタイルは、ページ固有のクラス名(.gallery/.contact等)で
+ * スコープしているため、1ファイルにまとめても衝突しない。
+ */
+
+/* ==================== 共通基盤(カラーパレット・フォント・リセット) ==================== */
+
+@font-face {
+  font-family: "TanukiMagic";
+  src: url("../../assets/fonts/TanukiMagic.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  /* 背景 */
+  --color-bg: #faf9f6; /* オフホワイト背景 */
+  --color-surface: #ffffff; /* カード等の前面背景 */
+
+  /* キーカラー(藍色系) */
+  --color-primary: #165e83; /* 見出し・リンク・ボタンなど */
+  --color-primary-dark: #0e3f58; /* ホバー・アクティブ時 */
+  --color-primary-light: #4a89ac; /* 補助的な装飾・アクセント */
+  --color-header-bg: var(--color-primary); /* 共通ヘッダーの背景(本文領域と区別するためキーカラーをそのまま使用) */
+
+  /* テキスト */
+  --color-text: #333333; /* 本文(純黒を避けた濃いグレー) */
+  --color-text-sub: #6b6b6b; /* キャプション等の補助テキスト */
+
+  /* 枠線・区切り線 */
+  --color-border: #ddddd6;
+
+  /* タイポグラフィ */
+  --font-base: "TanukiMagic", sans-serif;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-base);
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  line-height: 1.7;
+}
+
+a {
+  color: var(--color-primary);
+}
+
+a:hover,
+a:focus-visible {
+  color: var(--color-primary-dark);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-base);
+  color: var(--color-primary);
+  font-weight: normal; /* 単一ウェイトのフォントのためweight指定はしない */
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+/* ==================== 共通ヘッダー・ハンバーガーメニュー ==================== */
+
+.site-header {
+  position: sticky;
+  top: 0;
+  /*
+   * .site-headerと.site-nav(スライドインナビ)はbody直下の兄弟要素であり、
+   * それぞれが独立したスタッキングコンテキストを形成する。
+   * ヘッダー内のボタンにどれだけ高いz-indexを与えても、
+   * それはヘッダーのスタッキングコンテキスト内でのみ有効なため、
+   * ヘッダー自体のz-indexが.site-navより低いと、
+   * ヘッダー(と内部のハンバーガーボタン)がナビの背面に回り込み、
+   * メニュー展開中は実際のクリックがボタンに届かなくなる。
+   * そのため.site-header自体のz-indexを.site-navより高く設定する。
+   */
+  z-index: 200;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.75rem 1.25rem;
+  background-color: var(--color-header-bg);
+}
+
+.site-header__logo {
+  font-size: 1.25rem;
+  color: var(--color-bg);
+  text-decoration: none;
+}
+
+.site-header__logo:hover,
+.site-header__logo:focus-visible {
+  opacity: 0.8;
+}
+
+/* ハンバーガーボタン(押下で×アイコンに切り替わる) */
+.hamburger-btn {
+  position: relative;
+  width: 40px;
+  height: 40px;
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  z-index: 1; /* .site-header内のロゴ等より手前に表示する(.site-navとの前後関係は.site-header自体のz-indexで決まる) */
+}
+
+.hamburger-btn__bar {
+  position: absolute;
+  left: 8px;
+  right: 8px;
+  height: 2px;
+  background-color: var(--color-bg);
+  transition:
+    transform 0.3s ease,
+    opacity 0.3s ease,
+    top 0.3s ease;
+}
+
+.hamburger-btn__bar:nth-child(1) {
+  top: 13px;
+}
+
+.hamburger-btn__bar:nth-child(2) {
+  top: 19px;
+}
+
+.hamburger-btn__bar:nth-child(3) {
+  top: 25px;
+}
+
+.hamburger-btn.is-open .hamburger-btn__bar:nth-child(1) {
+  top: 19px;
+  transform: rotate(45deg);
+}
+
+.hamburger-btn.is-open .hamburger-btn__bar:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger-btn.is-open .hamburger-btn__bar:nth-child(3) {
+  top: 19px;
+  transform: rotate(-45deg);
+}
+
+/* スライドインナビゲーション(画面右端からスライドイン/アウト) */
+.site-nav {
+  position: fixed;
+  top: 0;
+  right: 0;
+  height: 100%;
+  width: min(280px, 80vw);
+  background-color: var(--color-surface);
+  box-shadow: -2px 0 12px rgba(0, 0, 0, 0.15);
+  transform: translateX(100%);
+  transition: transform 0.3s ease;
+  z-index: 100; /* .site-header(z-index:200)より低くし、ヘッダーが常にナビより手前に描画されるようにする */
+  padding-top: 4.5rem;
+  overflow-y: auto;
+}
+
+.site-nav.is-open {
+  transform: translateX(0);
+}
+
+.site-nav__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.site-nav__list li a {
+  display: block;
+  padding: 1rem 1.5rem;
+  color: var(--color-text);
+  text-decoration: none;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.site-nav__list li a:hover,
+.site-nav__list li a:focus-visible {
+  color: var(--color-primary);
+  background-color: var(--color-bg);
+}
+
+/* ==================== ゲーム紹介カード(HOME最新ゲーム欄・GALLERYで共用) ==================== */
+
+/*
+ * サムネイル比率はOGP推奨比率(1.91:1)に統一する。
+ *
+ * --game-card-width: カード幅の単一ソース。HOME(単体配置)とGALLERY(複数カードの折り返し配置)で
+ * カード幅の決め方(コンテナ幅・列数)が異なっていても、この変数を共有することで
+ * 同一ビューポート幅における表示幅を一致させる(詳細はdocs/300_開発/310_決定メモ/311_決定メモ.md参照)。
+ */
+
+:root {
+  --game-card-width: 480px;
+}
+
+.game-card {
+  display: block;
+  /* width:autoのままではmargin:autoによる中央揃えが効かない(仕様上、widthが
+     autoの場合はmargin-left/right autoは0として解決されてしまう)。
+     width:100%を明示し、max-widthで上限を掛けたうえでmargin:0 autoにすることで、
+     コンテナ幅がカード幅より広い場合(HOMEの1件表示など)でも水平中央揃えされる。 */
+  width: 100%;
+  max-width: var(--game-card-width);
+  margin: 0 auto;
+  border-radius: 12px;
+  overflow: hidden;
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  text-decoration: none;
+  color: inherit;
+  transition:
+    box-shadow 0.2s ease,
+    transform 0.2s ease;
+}
+
+.game-card:hover,
+.game-card:focus-visible {
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+  transform: translateY(-2px);
+}
+
+.game-card__thumbnail {
+  width: 100%;
+  /* <img>のwidth/height属性(プレゼンテーショナルヒント)よりCSSのheightを優先させ、
+     aspect-ratioが確実に効くようにする。 */
+  height: auto;
+  aspect-ratio: 1.91 / 1;
+  object-fit: cover;
+  background-color: var(--color-border);
+}
+
+.game-card__body {
+  padding: 1rem;
+}
+
+.game-card__title {
+  margin: 0 0 0.5rem;
+  font-size: 1.1rem;
+  color: var(--color-primary);
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.game-card__description {
+  margin: 0;
+  font-size: 0.95rem;
+  color: var(--color-text-sub);
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* ==================== HOMEページ(お知らせ欄・最新ゲーム掲載欄) ==================== */
+
+.announcements,
+.latest-game {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 1.5rem 1.25rem;
+}
+
+.announcements h2,
+.latest-game h2 {
+  font-size: 1.3rem;
+  margin: 0 0 0.75rem;
+}
+
+.announcements__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.announcements__list li {
+  display: flex;
+  gap: 1rem;
+  align-items: baseline;
+  border-bottom: 1px solid var(--color-border);
+  padding-bottom: 0.5rem;
+}
+
+.announcements__list time {
+  flex-shrink: 0;
+  font-size: 0.85rem;
+  color: var(--color-text-sub);
+}
+
+.announcements__list p {
+  margin: 0;
+}
+
+/* ==================== GALLERYページ(公開ゲームのカードグリッド) ==================== */
+
+/*
+ * PC幅で2列、モバイル幅で1列になるレスポンシブレイアウト。
+ * 列数をブレークポイントで固定するグリッドではなく、flex-wrapで
+ * 「--game-card-widthの幅で並べられるだけ並べ、収まらなければ折り返す」方式にしている。
+ * これによりHOME(単体配置)とGALLERY(複数配置)で、コンテナ幅や列数の違いに関わらず
+ * カード1枚あたりの表示幅が同一ビューポート幅で一致する
+ * (詳細はdocs/300_開発/310_決定メモ/311_決定メモ.md参照)。
+ */
+
+.gallery {
+  /* 2列(--game-card-width × 2 + gap 1.5rem)がぴったり収まる幅を確保する。
+     コンテナがこれより狭い場合は自動的に1列に折り返す。 */
+  max-width: calc(var(--game-card-width) * 2 + 1.5rem + 2.5rem);
+  margin: 0 auto;
+  padding: 1.5rem 1.25rem;
+}
+
+.gallery h2 {
+  font-size: 1.3rem;
+  margin: 0 0 0.75rem;
+}
+
+.gallery__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  /* カードが1件のみの場合や、2列レイアウトの折り返し後に1件だけ残る行でも
+     コンテナ内で中央揃えになるようにする。 */
+  justify-content: center;
+  gap: 1.5rem;
+}
+
+.gallery__list li {
+  flex: 0 1 var(--game-card-width);
+}
+
+.gallery__list .game-card {
+  height: 100%;
+}
+
+/* ==================== ABOUTページ(作者プロフィール・サイト概要・SNSリンク) ==================== */
+
+.author-profile,
+.site-overview,
+.sns-links {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 1.5rem 1.25rem;
+}
+
+.author-profile h2,
+.site-overview h2,
+.sns-links h2 {
+  font-size: 1.3rem;
+  margin: 0 0 0.75rem;
+}
+
+.author-profile__body {
+  display: flex;
+  gap: 1.25rem;
+  align-items: flex-start;
+}
+
+.author-profile__icon {
+  flex-shrink: 0;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.author-profile__name {
+  margin: 0 0 0.5rem;
+  font-weight: normal;
+  color: var(--color-primary);
+}
+
+.author-profile__text p {
+  margin: 0;
+}
+
+.author-profile__text p + p {
+  margin-top: 0.75rem;
+}
+
+.site-overview p {
+  margin: 0;
+}
+
+.sns-links__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.sns-links__link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  text-decoration: none;
+  color: var(--color-text);
+}
+
+.sns-links__link:hover,
+.sns-links__link:focus-visible {
+  color: var(--color-primary);
+}
+
+.sns-links__icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 8px;
+}
+
+/* ==================== PLAYページ(タイトル・説明文+ゲーム描画エリアの枠) ==================== */
+
+/*
+ * #game-stage配下は個別ゲーム(Phaser)専用のスコープとして予約し、
+ * サイト共通CSSのクラス名/idと衝突しないようにする。
+ */
+
+.play-page {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 1.5rem 1.25rem;
+}
+
+.play-page__title {
+  font-size: 1.5rem;
+  margin: 0 0 0.5rem;
+}
+
+.play-page__description {
+  margin: 0 0 1.5rem;
+  color: var(--color-text-sub);
+}
+
+.play-page__stage {
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+/*
+ * #game-stageはゲーム(Phaser)描画専用の予約領域。
+ * ここではプレースホルダー表示に必要な最小限のスタイルのみを与える。
+ * 実装時はPhaserのScale Manager(FITモード)がこの要素のサイズに合わせて
+ * canvasを拡縮する想定のため、幅・アスペクト比の指定は残したまま
+ * canvas要素に置き換えられるようにする。
+ */
+#game-stage {
+  width: 100%;
+  aspect-ratio: 1.91 / 1;
+  background-color: var(--color-border);
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.game-stage__placeholder {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* ==================== CONTACTページ(お問い合わせフォーム) ==================== */
+
+.contact {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 1.5rem 1.25rem;
+}
+
+.contact h2 {
+  font-size: 1.3rem;
+  margin: 0 0 0.75rem;
+}
+
+.contact__lead {
+  margin: 0 0 1.5rem;
+  color: var(--color-text-sub);
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.contact-form__field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.contact-form__label {
+  font-size: 0.95rem;
+  color: var(--color-text);
+}
+
+.contact-form__required {
+  margin-left: 0.4rem;
+  font-size: 0.75rem;
+  color: var(--color-primary);
+  border: 1px solid var(--color-primary-light);
+  border-radius: 4px;
+  padding: 0.05rem 0.4rem;
+}
+
+.contact-form__input,
+.contact-form__textarea {
+  font-family: var(--font-base);
+  font-size: 1rem;
+  color: var(--color-text);
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  padding: 0.6rem 0.75rem;
+}
+
+.contact-form__input:focus-visible,
+.contact-form__textarea:focus-visible {
+  outline: 2px solid var(--color-primary-light);
+  outline-offset: 1px;
+}
+
+.contact-form__textarea {
+  resize: vertical;
+}
+
+.contact-form__submit {
+  align-self: flex-start;
+  font-family: var(--font-base);
+  font-size: 1rem;
+  color: var(--color-surface);
+  background-color: var(--color-primary);
+  border: none;
+  border-radius: 8px;
+  padding: 0.65rem 1.75rem;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.contact-form__submit:hover,
+.contact-form__submit:focus-visible {
+  background-color: var(--color-primary-dark);
+}
+
+.contact-form__submit:disabled {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.contact-form__result {
+  margin: 0;
+  min-height: 1.5em;
+}
+
+.contact-form__result--success {
+  color: var(--color-primary);
+}
+
+.contact-form__result--error {
+  color: #a33a3a;
+}
+
+.contact-form__result--pending {
+  color: var(--color-text-sub);
+}
+
+/* ==================== プライバシーポリシーページ(見出し・本文) ==================== */
+
+.privacy-policy {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 1.5rem 1.25rem;
+}
+
+.privacy-policy h2 {
+  font-size: 1.3rem;
+  margin: 0 0 0.5rem;
+}
+
+.privacy-policy__updated {
+  margin: 0 0 1.5rem;
+  font-size: 0.85rem;
+  color: var(--color-text-sub);
+}
+
+.privacy-policy h3 {
+  font-size: 1.05rem;
+  margin: 1.75rem 0 0.5rem;
+}
+
+.privacy-policy p {
+  margin: 0 0 0.75rem;
+}
+
+.privacy-policy ul {
+  margin: 0 0 0.75rem;
+  padding-left: 1.5rem;
+}
+
+.privacy-policy li {
+  margin-bottom: 0.25rem;
+}
