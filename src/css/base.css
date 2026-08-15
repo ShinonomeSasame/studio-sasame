@@ -20,6 +20,7 @@
   --color-primary: #165e83; /* 見出し・リンク・ボタンなど */
   --color-primary-dark: #0e3f58; /* ホバー・アクティブ時 */
   --color-primary-light: #4a89ac; /* 補助的な装飾・アクセント */
+  --color-header-bg: #e3ecf0; /* 共通ヘッダーの背景(本文領域と区別するための薄い藍色寄りの色) */
 
   /* テキスト */
   --color-text: #333333; /* 本文(純黒を避けた濃いグレー) */
