@@ -1,0 +1,38 @@
+/*
+ * プライバシーポリシーページ専用のレイアウト(見出し・本文)。
+ */
+
+.privacy-policy {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 1.5rem 1.25rem;
+}
+
+.privacy-policy h2 {
+  font-size: 1.3rem;
+  margin: 0 0 0.5rem;
+}
+
+.privacy-policy__updated {
+  margin: 0 0 1.5rem;
+  font-size: 0.85rem;
+  color: var(--color-text-sub);
+}
+
+.privacy-policy h3 {
+  font-size: 1.05rem;
+  margin: 1.75rem 0 0.5rem;
+}
+
+.privacy-policy p {
+  margin: 0 0 0.75rem;
+}
+
+.privacy-policy ul {
+  margin: 0 0 0.75rem;
+  padding-left: 1.5rem;
+}
+
+.privacy-policy li {
+  margin-bottom: 0.25rem;
+}
