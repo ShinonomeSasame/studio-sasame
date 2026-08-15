@@ -5,10 +5,9 @@
  * 送信成功/失敗はフォーム下の結果メッセージ要素(#contact-form-result)で通知する。
  */
 
-// TODO: 実際のEmailJSアカウント作成後に差し替える
-const EMAILJS_SERVICE_ID = "PLACEHOLDER_SERVICE_ID";
-const EMAILJS_TEMPLATE_ID = "PLACEHOLDER_TEMPLATE_ID";
-const EMAILJS_PUBLIC_KEY = "PLACEHOLDER_PUBLIC_KEY";
+const EMAILJS_SERVICE_ID = "service_he5l3ia";
+const EMAILJS_TEMPLATE_ID = "template_efsad2a";
+const EMAILJS_PUBLIC_KEY = "aXEFuG0yZ-nN6BzO-";
 
 function initContactForm() {
   const form = document.getElementById("contact-form");
