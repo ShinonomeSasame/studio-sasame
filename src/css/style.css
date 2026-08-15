@@ -113,7 +113,8 @@ img {
 
 .site-header__logo:hover,
 .site-header__logo:focus-visible {
-  opacity: 0.8;
+  color: var(--color-surface);
+  text-decoration: underline;
 }
 
 /* ハンバーガーボタン(押下で×アイコンに切り替わる) */
