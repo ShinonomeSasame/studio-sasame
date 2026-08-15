@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>GALLERY | スタジオささめ</title>
-    <link rel="icon" type="image/png" href="assets/images/favicon/favicon.png" />
+    <link rel="icon" type="image/png" href="../assets/images/favicon/favicon.png" />
 
     <!-- OGP / Twitter Card -->
     <meta property="og:title" content="GALLERY | スタジオささめ" />
@@ -12,17 +12,17 @@
       property="og:description"
       content="「スタジオささめ」が公開しているブラウザゲームの一覧です。気になる作品はそのままブラウザでプレイできます。"
     />
-    <meta property="og:image" content="assets/images/ogp/gallery.png" />
+    <meta property="og:image" content="../assets/images/ogp/gallery.png" />
     <!-- TODO: 本番ドメイン確定後、相対パスから絶対URLに差し替える -->
-    <meta property="og:url" content="gallery.html" />
+    <meta property="og:url" content="./" />
     <meta property="og:type" content="website" />
     <meta name="twitter:card" content="summary_large_image" />
 
-    <link rel="stylesheet" href="src/css/style.css" />
+    <link rel="stylesheet" href="../src/css/style.css" />
   </head>
   <body>
     <header class="site-header">
-      <a href="index.html" class="site-header__logo">スタジオささめ</a>
+      <a href="../" class="site-header__logo">スタジオささめ</a>
       <button
         type="button"
         id="hamburger-btn"
@@ -39,11 +39,11 @@
 
     <nav class="site-nav" id="site-nav" aria-hidden="true">
       <ul class="site-nav__list">
-        <li><a href="index.html">HOME</a></li>
-        <li><a href="about.html">ABOUT</a></li>
-        <li><a href="gallery.html">GALLERY</a></li>
-        <li><a href="contact.html">CONTACT</a></li>
-        <li><a href="privacy-policy.html">プライバシーポリシー</a></li>
+        <li><a href="../">HOME</a></li>
+        <li><a href="../about/">ABOUT</a></li>
+        <li><a href="../gallery/">GALLERY</a></li>
+        <li><a href="../contact/">CONTACT</a></li>
+        <li><a href="../privacy-policy/">プライバシーポリシー</a></li>
       </ul>
     </nav>
 
@@ -64,7 +64,7 @@
               サムネイル(データURIのSVG)・タイトル・説明文・リンク先はすべて仮の内容。
               実装後にサムネイル画像/タイトル/説明文/リンク先を差し替える。
             -->
-            <a class="game-card" href="play.html">
+            <a class="game-card" href="../play/">
               <img
                 class="game-card__thumbnail"
                 src="data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1200' height='630'%3E%3Crect width='100%25' height='100%25' fill='%23ddddd6'/%3E%3Ctext x='50%25' y='50%25' font-size='48' font-family='sans-serif' text-anchor='middle' dominant-baseline='middle' fill='%236b6b6b'%3EComing Soon%3C/text%3E%3C/svg%3E"
@@ -83,6 +83,6 @@
       </section>
     </main>
 
-    <script type="module" src="src/js/header.js"></script>
+    <script type="module" src="../src/js/header.js"></script>
   </body>
 </html>

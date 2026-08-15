@@ -4,11 +4,11 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>(仮)タイトル未定のゲーム | スタジオささめ</title>
-    <link rel="icon" type="image/png" href="assets/images/favicon/favicon.png" />
+    <link rel="icon" type="image/png" href="../assets/images/favicon/favicon.png" />
 
     <!--
       OGP / Twitter Card
-      プレースホルダー: GALLERYカード(gallery.html)のサムネイル(データURIのSVG)・説明文をそのまま流用している。
+      プレースホルダー: GALLERYカード(gallery/index.html)のサムネイル(データURIのSVG)・説明文をそのまま流用している。
       実際のゲームタイトル/説明文/サムネイルが確定した際は、GALLERYカードと合わせて差し替える。
     -->
     <meta property="og:title" content="(仮)タイトル未定のゲーム | スタジオささめ" />
@@ -21,15 +21,15 @@
       content="data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1200' height='630'%3E%3Crect width='100%25' height='100%25' fill='%23ddddd6'/%3E%3Ctext x='50%25' y='50%25' font-size='48' font-family='sans-serif' text-anchor='middle' dominant-baseline='middle' fill='%236b6b6b'%3EComing Soon%3C/text%3E%3C/svg%3E"
     />
     <!-- TODO: 本番ドメイン確定後、相対パスから絶対URLに差し替える -->
-    <meta property="og:url" content="play.html" />
+    <meta property="og:url" content="./" />
     <meta property="og:type" content="website" />
     <meta name="twitter:card" content="summary_large_image" />
 
-    <link rel="stylesheet" href="src/css/style.css" />
+    <link rel="stylesheet" href="../src/css/style.css" />
   </head>
   <body>
     <header class="site-header">
-      <a href="index.html" class="site-header__logo">スタジオささめ</a>
+      <a href="../" class="site-header__logo">スタジオささめ</a>
       <button
         type="button"
         id="hamburger-btn"
@@ -46,18 +46,18 @@
 
     <nav class="site-nav" id="site-nav" aria-hidden="true">
       <ul class="site-nav__list">
-        <li><a href="index.html">HOME</a></li>
-        <li><a href="about.html">ABOUT</a></li>
-        <li><a href="gallery.html">GALLERY</a></li>
-        <li><a href="contact.html">CONTACT</a></li>
-        <li><a href="privacy-policy.html">プライバシーポリシー</a></li>
+        <li><a href="../">HOME</a></li>
+        <li><a href="../about/">ABOUT</a></li>
+        <li><a href="../gallery/">GALLERY</a></li>
+        <li><a href="../contact/">CONTACT</a></li>
+        <li><a href="../privacy-policy/">プライバシーポリシー</a></li>
       </ul>
     </nav>
 
     <main>
       <!--
         プレースホルダー: 実際のゲームタイトル/説明文/サムネイルは未確定のため、
-        GALLERYカード(gallery.html)と同じ仮の文言・データURIのSVGを仮置きしている。
+        GALLERYカード(gallery/index.html)と同じ仮の文言・データURIのSVGを仮置きしている。
         実装後はGALLERYカードと同じ内容に差し替える。
       -->
       <article class="play-page">
@@ -73,7 +73,7 @@
             ゲーム描画エリア。id="game-stage"配下は個別ゲーム(Phaser)専用のマークアップ・
             CSS/JSのスコープとして予約する。個別ゲームのCSSはこのid配下にセレクタを
             スコープさせることで、サイト共通CSS(base.css/header.css等)のクラス名/idと
-            衝突しないようにする(詳細はdocs/200_設計/230_コアシステム/231_コアシステム.md参照)。
+            衝突しないようにする(詳細はdocs/200_設計/230_システム設計/231_コアシステム.md参照)。
             Phaser本体の組み込み(canvas要素の追加、Scale Managerの設定等)はIssue #19の
             範囲外であり、今回はスクリプトを含めない。
           -->
@@ -90,6 +90,6 @@
       </article>
     </main>
 
-    <script type="module" src="src/js/header.js"></script>
+    <script type="module" src="../src/js/header.js"></script>
   </body>
 </html>

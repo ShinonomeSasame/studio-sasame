@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>CONTACT | スタジオささめ</title>
-    <link rel="icon" type="image/png" href="assets/images/favicon/favicon.png" />
+    <link rel="icon" type="image/png" href="../assets/images/favicon/favicon.png" />
 
     <!-- OGP / Twitter Card -->
     <meta property="og:title" content="CONTACT | スタジオささめ" />
@@ -12,17 +12,17 @@
       property="og:description"
       content="スタジオささめへのお問い合わせはこちらから。ご意見・ご感想・不具合報告などお気軽にご連絡ください。"
     />
-    <meta property="og:image" content="assets/images/ogp/contact.png" />
+    <meta property="og:image" content="../assets/images/ogp/contact.png" />
     <!-- TODO: 本番ドメイン確定後、相対パスから絶対URLに差し替える -->
-    <meta property="og:url" content="contact.html" />
+    <meta property="og:url" content="./" />
     <meta property="og:type" content="website" />
     <meta name="twitter:card" content="summary_large_image" />
 
-    <link rel="stylesheet" href="src/css/style.css" />
+    <link rel="stylesheet" href="../src/css/style.css" />
   </head>
   <body>
     <header class="site-header">
-      <a href="index.html" class="site-header__logo">スタジオささめ</a>
+      <a href="../" class="site-header__logo">スタジオささめ</a>
       <button
         type="button"
         id="hamburger-btn"
@@ -39,11 +39,11 @@
 
     <nav class="site-nav" id="site-nav" aria-hidden="true">
       <ul class="site-nav__list">
-        <li><a href="index.html">HOME</a></li>
-        <li><a href="about.html">ABOUT</a></li>
-        <li><a href="gallery.html">GALLERY</a></li>
-        <li><a href="contact.html">CONTACT</a></li>
-        <li><a href="privacy-policy.html">プライバシーポリシー</a></li>
+        <li><a href="../">HOME</a></li>
+        <li><a href="../about/">ABOUT</a></li>
+        <li><a href="../gallery/">GALLERY</a></li>
+        <li><a href="../contact/">CONTACT</a></li>
+        <li><a href="../privacy-policy/">プライバシーポリシー</a></li>
       </ul>
     </nav>
 
@@ -53,7 +53,7 @@
         <p class="contact__lead">
           ご意見・ご感想・不具合報告などございましたら、以下のフォームよりお気軽にお問い合わせください。
           送信いただいた氏名・メールアドレスの取り扱いについては
-          <a href="privacy-policy.html">プライバシーポリシー</a>をご確認ください。
+          <a href="../privacy-policy/">プライバシーポリシー</a>をご確認ください。
         </p>
 
         <form class="contact-form" id="contact-form" novalidate>
@@ -109,7 +109,7 @@
       詳細はdocs/300_開発/310_決定メモ/311_決定メモ.md参照。
     -->
     <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
-    <script type="module" src="src/js/header.js"></script>
-    <script type="module" src="src/js/contact.js"></script>
+    <script type="module" src="../src/js/header.js"></script>
+    <script type="module" src="../src/js/contact.js"></script>
   </body>
 </html>

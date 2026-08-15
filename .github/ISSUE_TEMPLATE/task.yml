@@ -27,6 +27,6 @@ body:
     attributes:
       label: 関連ドキュメント
       description: 関連する設計ドキュメントなどへのリンク(任意)
-      placeholder: docs/200_設計/210_ゲームデザイン/211_ゲームデザイン.md
+      placeholder: docs/200_設計/210_サイトデザイン/211_サイトデザイン.md
     validations:
       required: false
